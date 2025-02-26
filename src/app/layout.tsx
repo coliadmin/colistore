@@ -11,21 +11,21 @@ import {CompanyProviderClient} from "@/modules/twenty/company/company-context";
 
 const inter = Inter({subsets: ["latin"]});
 
-export async function generateMetadata() {
-  const domain = getDomain();
+// export async function generateMetadata() {
+//   const domain = getDomain();
 
-  const company = await getData(domain);
+//   const company = await getData(domain);
 
-  if (!company) {
-    return {
-      title: "Not found",
-    };
-  }
+//   if (!company) {
+//     return {
+//       title: "Not found",
+//     };
+//   }
 
-  return {
-    title: company.name,
-  };
-}
+//   return {
+//     title: company.name,
+//   };
+// }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   const domain = getDomain();

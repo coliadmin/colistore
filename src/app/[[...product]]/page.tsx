@@ -10,19 +10,19 @@ import {fetchDomains} from "@/modules/twenty/company/data";
 import {CompanyProviderClient} from "@/modules/twenty/company/company-context";
 import {CartProviderClient} from "@/modules/cart/cart-context";
 
-export async function generateStaticParams() {
-  const allDomains = await fetchDomains();
+// export async function generateStaticParams() {
+//   const allDomains = await fetchDomains();
 
-  const allPaths = allDomains
-    .flatMap(({domain}) => [
-      domain && {
-        domain: `${domain}`,
-      },
-    ])
-    .filter(Boolean);
+//   const allPaths = allDomains
+//     .flatMap(({domain}) => [
+//       domain && {
+//         domain: `${domain}`,
+//       },
+//     ])
+//     .filter(Boolean);
 
-  return allPaths;
-}
+//   return allPaths;
+// }
 
 type Props = {
   params: {product?: [product: string]};
