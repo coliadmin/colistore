@@ -1,0 +1,26 @@
+networks:
+  coli-dev-coliburgers:
+    driver: bridge
+
+services:
+  web:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    image: coli-dev-coliburgers-web
+    container_name: coli-dev-coliburgers-web
+    ports:
+      - "3001:3000"
+    networks:
+      coli-dev-coliburgers:
+        aliases:
+          - web
+  redis:
+    image: redis:alpine
+    container_name: coli-dev-coliburgers-redis
+    ports:
+      - "6380:6379"
+    networks:
+      coli-dev-coliburgers:
+        aliases:
+          - redis
