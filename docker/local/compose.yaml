@@ -1,0 +1,14 @@
+networks:
+  coli-local-coliburgers:
+    driver: bridge
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: coli-local-coliburgers-redis
+    ports:
+      - "6379:6379"
+    networks:
+      coli-local-coliburgers:
+        aliases:
+          - redis
