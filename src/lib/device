@@ -1,0 +1,13 @@
+import { headers } from "next/headers";
+
+export function getDeviceType(): "mobile" | "desktop" {
+  const h = headers();
+  const userAgent = h.get("user-agent") || "";
+  
+  // Detectar si es un dispositivo móvil usando regex
+  const isMobile = /android|iphone|ipad|ipod|blackberry|opera mini|windows phone|mobile/i.test(userAgent);
+
+  console.log("lib/device getDeviceType | ", isMobile ? "mobile" : "desktop");
+
+  return isMobile ? "mobile" : "desktop";
+}
