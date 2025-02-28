@@ -6,8 +6,11 @@ import {normalizeUrl, toCompany} from "@/modules/twenty/company/utils";
 
 export async function getData(domain: string): Promise<Company | null> {
   const url = normalizeUrl(domain, true) + ":3000";
+  const r = url + `/api/company`;
 
-  const response = await fetch(url + `/api/company`, {next: {tags: [domain]}});
+  console.log("lib/domain getDomain | ", r);
+
+  const response = await fetch(r, {next: {tags: [domain]}});
 
   if (response.status !== 200) {
     return null;
