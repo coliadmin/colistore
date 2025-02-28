@@ -9,7 +9,7 @@ export function generateWhatsAppOrderMessage(
   cart: CartItem[],
   total: number,
 ) {
-  let msg = "*Pedido:{*\n";
+  let msg = "*Pedido:*\n";
 
   cart.sort((a, b) => a.quantity * a.listPrice - b.quantity * b.listPrice);
 
@@ -17,7 +17,7 @@ export function generateWhatsAppOrderMessage(
     msg += `- (${item.quantity}) ${item.name} > $${item.listPrice * item.quantity}\n`;
   });
 
-  msg += `*}*\n\n`;
+  msg += `\n`;
 
   msg += `*Datos:*\n`;
   msg += `- Pedido a nombre de: ${orderDetails.customerName}\n`;
