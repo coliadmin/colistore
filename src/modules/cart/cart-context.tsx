@@ -124,7 +124,7 @@ export function CartProviderClient({children}: Props) {
   };
 
   const isOrderValid = () => {
-    if (!customerName.trim() || customerName.trim().length < 3) return false;
+    if (!customerName.trim() || customerName.trim().length < 1) return false;
     if ((paymentMethod === PaymentMethod.EFECTIVO && !cashAmount) || cashAmount! < total)
       return false;
     if (deliveryMethod === "delivery" && address.trim().length === 0) return false;
